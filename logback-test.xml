@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Project Homunculus
+  ~
+  ~ Copyright (c) 2021. Elex. All Rights Reserved.
+  ~ https://www.elex-project.com/
+  -->
+
 <configuration>
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder>

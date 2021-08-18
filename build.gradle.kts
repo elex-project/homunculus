@@ -1,3 +1,10 @@
+/*
+ * Project Homunculus
+ *
+ * Copyright (c) 2021. Elex. All Rights Reserved.
+ * https://www.elex-project.com/
+ */
+
 plugins {
 	java
 	`java-library`
@@ -6,16 +13,12 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.0-SNAPSHOT"
-description = ""//todo
+version = "1.1.3"
+description = "Mozart's Minuet Maker"
 
 repositories {
 	maven {
 		url = uri("https://repository.elex-project.com/repository/maven")
-	}
-	maven {
-		url = uri("https://repo.maven.apache.org/maven2")
-		name = "Maven Central"
 	}
 }
 
@@ -37,7 +40,7 @@ configurations {
 }
 
 tasks.jar {
-	manifest { // todo
+	manifest {
 		attributes(mapOf(
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
@@ -75,22 +78,16 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				// todo
 				name.set(project.name)
 				description.set(project.description)
 				url.set("https://www.elex-project.com/")
-				inceptionYear.set("2021")
-				properties.set(mapOf(
-						"myProp" to "value",
-						"prop.with.dots" to "anotherValue"
-				))
+				inceptionYear.set("2015")
 				organization {
 					name.set("Elex co.,Pte.")
 					url.set("https://www.elex-project.com/")
 				}
 				licenses {
 					license {
-						// todo
 						name.set("Apache License 2.0")
 						url.set("https://github.com/elex-project/${project.name}/blob/main/LICENSE")
 						comments.set("")
@@ -106,18 +103,16 @@ publishing {
 						organizationUrl.set("https://www.elex-project.com/")
 						roles.set(arrayListOf("Developer", "CEO"))
 						timezone.set("Asia/Seoul")
-						properties.set(mapOf("" to ""))
 					}
 				}
-				contributors {
+				/*contributors {
 					contributor {
 						name.set("")
 						email.set("")
 						url.set("")
 					}
-				}
+				}*/
 				scm {
-					// todo
 					connection.set("scm:git:https://github.com/elex-project/${project.name}.git")
 					developerConnection.set("scm:git:https://github.com/elex-project/${project.name}.git")
 					url.set("https://github.com/elex-project/${project.name}/")
@@ -138,7 +133,7 @@ publishing {
 				password = project.findProperty("repo.password") as String
 			}
 		}
-		maven { //todo
+		maven {
 			name = "mavenGithub"
 			url = uri("https://maven.pkg.github.com/elex-project/${project.name}")
 			credentials {
@@ -153,6 +148,12 @@ dependencies {
 	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 	implementation("org.slf4j:slf4j-api:1.7.32")
 	implementation("org.jetbrains:annotations:22.0.0")
+
+	implementation("com.elex-project:abraxas:4.7.2")
+	implementation("com.elex-project:jujak:1.1.0")
+
+	implementation("org.json:json:20210307")
+	implementation("com.github.leffelmania:android-midi-lib:1.0.0")
 
 	compileOnly("org.projectlombok:lombok:1.18.20")
 	annotationProcessor("org.projectlombok:lombok:1.18.20")
