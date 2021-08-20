@@ -153,7 +153,7 @@ dependencies {
 	implementation("com.elex-project:jujak:1.1.0")
 
 	implementation("org.json:json:20210307")
-	implementation("com.github.leffelmania:android-midi-lib:1.0.0")
+	implementation("com.elex-project:morgens:1.0.0")
 
 	compileOnly("org.projectlombok:lombok:1.18.20")
 	annotationProcessor("org.projectlombok:lombok:1.18.20")
